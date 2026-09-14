@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026년 부드럽 과정 | 도레이첨단소재 현장 반장 부부 특별 워크숍</title>
+  
+  <!-- 웹폰트: 가독성이 뛰어난 프리텐다드 & 고즈넉한 감성의 노토 세리프 한글 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- 폰트어썸 아이콘 CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- 메인 스타일시트 연결 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==============================================================================
+       1. 최상단 헤더 및 내비게이션 바 (PC & 모바일 반응형)
+       ============================================================================== -->
+  <header class="main-header" id="mainHeader">
+    <div class="header-container">
+      <div class="logo-group">
+        <!-- // 여기 수정: 회사명 또는 워크숍 타이틀 텍스트를 변경할 수 있습니다. -->
+        <span class="company-badge">TORAY 도레이첨단소재</span>
+        <a href="#home" class="logo-title">2026 부드럽 과정</a>
+      </div>
+
+      <!-- PC 내비게이션 메뉴 (5대 카테고리) -->
+      <nav class="desktop-nav">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-item active"><i class="fa-solid fa-house"></i> 홈</a></li>
+          <li class="dropdown">
+            <a href="#intro" class="nav-item"><i class="fa-solid fa-leaf"></i> 과정소개 <i class="fa-solid fa-angle-down arrow"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="#intro-meaning">부드럽 과정의 의미</a></li>
+              <li><a href="#intro-schedule">일정표 (시간표)</a></li>
+              <li><a href="#intro-location">오시는 길 & 집결 안내</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#program" class="nav-item"><i class="fa-solid fa-compass"></i> 프로그램 <i class="fa-solid fa-angle-down arrow"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="#prog-sayu">군위 사유원 (사색 수목원)</a></li>
+              <li><a href="#prog-hwabon">화본역 & 추억박물관</a></li>
+              <li><a href="#prog-oar">오아르미술관</a></li>
+              <li><a href="#prog-hwangri">황리단길 부부 자유투어</a></li>
+            </ul>
+          </li>
+          <li><a href="#lodging" class="nav-item"><i class="fa-solid fa-hotel"></i> 숙소 (경주힐튼)</a></li>
+          <li><a href="#notice" class="nav-item"><i class="fa-solid fa-circle-info"></i> 기타사항 & 문의</a></li>
+        </ul>
+      </nav>
+
+      <!-- 우측 기능 버튼들 (힐링 음악 토글 + 모바일 햄버거 메뉴 버튼) -->
+      <div class="header-actions">
+        <!-- 배경 힐링 오디오 버튼 -->
+        <button id="musicToggleBtn" class="btn-music" title="힐링 배경음악 켜기/끄기">
+          <i class="fa-solid fa-music" id="musicIcon"></i>
+          <span class="music-label">힐링 소리</span>
+        </button>
+
+        <!-- 모바일 햄버거 토글 버튼 -->
+        <button class="mobile-toggle-btn" id="mobileMenuBtn" aria-label="메뉴 열기">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 모바일 슬라이드 드로어 메뉴 -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="drawer-title">2026 부드럽 과정</div>
+      <button class="drawer-close-btn" id="drawerCloseBtn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-sub">도레이첨단소재 현장 반장 부부 특별 워크숍</div>
+    <ul class="drawer-nav">
+      <li><a href="#home" class="drawer-link"><i class="fa-solid fa-house"></i> 홈 (메인)</a></li>
+      <li class="drawer-category">
+        <div class="category-title"><i class="fa-solid fa-leaf"></i> 과정소개</div>
+        <ul class="sub-links">
+          <li><a href="#intro-meaning" class="drawer-link">- 부드럽 과정 의미</a></li>
+          <li><a href="#intro-schedule" class="drawer-link">- 워크숍 시간표</a></li>
+          <li><a href="#intro-location" class="drawer-link">- 오시는 길 & 집결 안내</a></li>
+        </ul>
+      </li>
+      <li class="drawer-category">
+        <div class="category-title"><i class="fa-solid fa-compass"></i> 프로그램</div>
+        <ul class="sub-links">
+          <li><a href="#prog-sayu" class="drawer-link">- 군위 사유원</a></li>
+          <li><a href="#prog-hwabon" class="drawer-link">- 화본역 & 옛날옛적에 엄마아빠</a></li>
+          <li><a href="#prog-oar" class="drawer-link">- 오아르미술관</a></li>
+          <li><a href="#prog-hwangri" class="drawer-link">- 황리단길 자유투어</a></li>
+        </ul>
+      </li>
+      <li><a href="#lodging" class="drawer-link"><i class="fa-solid fa-hotel"></i> 숙소 (경주 힐튼호텔)</a></li>
+      <li><a href="#notice" class="drawer-link"><i class="fa-solid fa-phone"></i> 기타사항 (담당자 연락처)</a></li>
+    </ul>
+    <div class="drawer-footer">
+      <!-- // 여기 수정: 모바일 메뉴 하단 담당자 문의 직통 번호 -->
+      <a href="tel:010-1234-5678" class="drawer-contact-btn"><i class="fa-solid fa-phone"></i> 운영본부 바로 전화</a>
+    </div>
+  </div>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <!-- ==============================================================================
+       2. [카테고리 1] 홈 메인 비주얼 & 환영 인사
+       ============================================================================== -->
+  <section class="hero-section" id="home">
+    <div class="hero-background-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span class="pulse-dot"></span>
+        <span>2026 TORAY SPECIAL WORKSHOP FOR SPOUSES</span>
+      </div>
+      <!-- // 여기 수정: 메인 슬로건 및 타이틀 문구 -->
+      <h1 class="hero-title">
+        쉼과 여유, 그리고 따뜻한 동행<br>
+        <span class="hero-highlight">2026년 부드럽 과정</span>
+      </h1>
+      <p class="hero-subtitle">
+        도레이첨단소재의 든든한 주역이신 현장 반장님과,<br class="mobile-br">
+        언제나 그 곁에서 묵묵히 힘이 되어주신 소중한 배우자님을 모십니다.<br>
+        자연의 고즈넉함과 특급 호텔의 편안함 속에서 참된 쉼을 누려보세요.
+      </p>
+
+      <!-- 요약 안내 카드 배너 -->
+      <div class="hero-info-cards">
+        <div class="info-card">
+          <i class="fa-regular fa-calendar-check"></i>
+          <!-- // 여기 수정: 워크숍 일정 날짜 -->
+          <div class="card-text">
+            <span class="card-label">행사 일정</span>
+            <strong class="card-val">2026년 봄 (1박 2일)</strong>
+          </div>
+        </div>
+        <div class="info-card">
+          <i class="fa-solid fa-location-dot"></i>
+          <!-- // 여기 수정: 주요 장소 안내 -->
+          <div class="card-text">
+            <span class="card-label">힐링 장소</span>
+            <strong class="card-val">경주 힐튼호텔 & 군위 사유원</strong>
+          </div>
+        </div>
+        <div class="info-card">
+          <i class="fa-solid fa-heart"></i>
+          <!-- // 여기 수정: 대상자 안내 -->
+          <div class="card-text">
+            <span class="card-label">초청 대상</span>
+            <strong class="card-val">도레이 현장 반장 & 배우자 부부</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- 영상 감상 & 일정 바로가기 액션 버튼 -->
+      <div class="hero-btns">
+        <a href="#intro" class="btn btn-primary"><i class="fa-solid fa-circle-chevron-down"></i> 과정 자세히 보기</a>
+        <button class="btn btn-video" id="openVideoModalBtn"><i class="fa-solid fa-circle-play"></i> 감성 소개영상 시청</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================================================
+       3. [카테고리 2] 과정소개 (의미, 시간표, 오시는 길)
+       ============================================================================== -->
+  <section class="section-container" id="intro">
+    <div class="section-header">
+      <span class="section-badge">ABOUT WORKSHOP</span>
+      <h2 class="section-title">과정 소개</h2>
+      <p class="section-desc">우리가 함께 걸어온 노고에 감사하며, 부부가 함께 누리는 드넓은 사랑과 휴식의 시간</p>
+    </div>
+
+    <!-- 하위 탭 메뉴 -->
+    <div class="sub-category-tabs">
+      <button class="tab-btn active" data-target="intro-meaning"><i class="fa-solid fa-quote-left"></i> 부드럽 과정 의미</button>
+      <button class="tab-btn" data-target="intro-schedule"><i class="fa-solid fa-clock"></i> 일정표 (시간표)</button>
+      <button class="tab-btn" data-target="intro-location"><i class="fa-solid fa-map-location-dot"></i> 오시는 길 & 집결 안내</button>
+    </div>
+
+    <!-- (2-1) 부드럽 과정 의미 -->
+    <div class="tab-pane active" id="intro-meaning">
+      <div class="meaning-grid">
+        <div class="meaning-text-card">
+          <div class="quote-icon"><i class="fa-solid fa-leaf"></i></div>
+          <!-- // 여기 수정: 과정 명칭의 유래 및 담긴 가치 설명 -->
+          <h3>'부드럽'에 담긴 세 가지 소중한 약속</h3>
+          <p class="lead-text">
+            <strong>"부"</strong> 부의 <strong>"드"</strong> 넓은 <strong>"럽"</strong>(LOVE) 사랑을 확인하고,<br>
+            각박했던 일상에서 벗어나 마음이 <strong>부드러워지는 쉼</strong>을 선물합니다.
+          </p>
+          <div class="meaning-pillars">
+            <div class="pillar-item">
+              <div class="pillar-num">01</div>
+              <div class="pillar-body">
+                <h4>쉼 (Rest & Healing)</h4>
+                <p>도레이첨단소재의 든든한 기둥인 현장 반장님들의 치열했던 일상에 고요한 사색과 진정한 쉼표를 선사합니다.</p>
+              </div>
+            </div>
+            <div class="pillar-item">
+              <div class="pillar-num">02</div>
+              <div class="pillar-body">
+                <h4>감사 (Gratitude)</h4>
+                <p>남편이자 아내로서 묵묵히 가정을 함께 지탱해 준 배우자에게 말로 다 전하지 못했던 깊은 고마움을 표현합니다.</p>
+              </div>
+            </div>
+            <div class="pillar-item">
+              <div class="pillar-num">03</div>
+              <div class="pillar-body">
+                <h4>동행 (Together)</h4>
+                <p>세계적인 건축 예술의 숲길과 천년고도 경주의 고즈넉한 풍경 속에서 두 분만의 새로운 추억과 미래를 설계합니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="meaning-image-card">
+          <!-- 감성 고화질 이미지 (자연 숲길과 휴식) -->
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="편안한 휴식 풍경" class="main-img">
+          <div class="image-caption">
+            <i class="fa-solid fa-heart"></i> 서로의 손을 잡고 걸어가는 가장 여유롭고 따뜻한 시간
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- (2-2) 시간표 (일정표) -->
+    <div class="tab-pane" id="intro-schedule">
+      <div class="schedule-intro">
+        <h3><i class="fa-regular fa-calendar-days"></i> 1박 2일 힐링 여정 상세 일정표</h3>
+        <p>무리한 이동 없는 여유로운 동선으로 구성되어, 부부가 온전히 서로에게 집중할 수 있습니다.</p>
+      </div>
+
+      <div class="schedule-days">
+        <!-- 1일차 -->
+        <div class="day-card">
+          <div class="day-badge">
+            <span class="day-title">1일차</span>
+            <span class="day-theme">사색과 휴식, 그리고 감동의 만찬</span>
+          </div>
+          <ul class="timeline">
+            <li class="timeline-item">
+              <span class="time">09:00 ~ 11:30</span>
+              <div class="timeline-content">
+                <strong>각 사업장 출발 및 군위 사유원 집결</strong>
+                <p>도레이 전용 리무진 버스 탑승 또는 개별 이동 / 따뜻한 웰컴 키트 및 다과 제공</p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="time">11:30 ~ 13:00</span>
+              <div class="timeline-content">
+                <strong>정갈한 웰컴 중식 (사유원 내 사담 한식)</strong>
+                <p>자연의 맛을 담은 계절 식재료 건강 한식 코스</p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="time">13:00 ~ 15:30</span>
+              <div class="timeline-content">
+                <strong>군위 사유원 힐링 도슨트 산책</strong>
+                <p>10만 평 명품 수목원, 알바로 시자의 소요헌 및 배롱나무 숲 부부 산책</p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="time">15:30 ~ 17:00</span>
+              <div class="timeline-content">
+                <strong>경주 힐튼호텔 이동 및 객실 체크인</strong>
+                <p>보문호수 뷰 5성급 특급 호텔 체크인 및 자유 휴식 (사우나 / 호숫가 산책)</p>
+              </div>
+            </li>
+            <li class="timeline-item highlight-item">
+              <span class="time">18:00 ~ 20:30</span>
+              <div class="timeline-content">
+                <strong>[특설] 2026 부드럽 환영 만찬 & 부부 힐링 콘서트</strong>
+                <p>최고급 코스 요리, 배우자 감사 편지 낭독, 어쿠스틱 라이브 공연</p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="time">20:30 ~ </span>
+              <div class="timeline-content">
+                <strong>부부만의 로맨틱 호캉스 & 휴식</strong>
+                <p>호텔 라운지 와인 또는 아늑한 객실에서 나누는 깊은 대화의 시간</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 2일차 -->
+        <div class="day-card">
+          <div class="day-badge day-2">
+            <span class="day-title">2일차</span>
+            <span class="day-theme">옛 추억의 향기와 고즈넉한 예술 산책</span>
+          </div>
+          <ul class="timeline">
+            <li class="timeline-item">
+              <span class="time">07:30 ~ 09:30</span>
+              <div class="timeline-content">
+                <strong>경주 힐튼호텔 레이크사이드 프리미엄 조식</strong>
+                <p>신선한 로컬 재료의 호텔 뷔페 조식 후 보문호수 아침 산책</p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="time">09:30 ~ 10:30</span>
+              <div class="timeline-content">
+                <strong>체크아웃 및 화본역 이동</strong>
+                <p>호텔 체크아웃 후 전용 리무진 탑승</p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="time">10:30 ~ 12:00</span>
+              <div class="timeline-content">
+                <strong>화본역 & '엄마아빠 어렸을 적에' 추억 투어</strong>
+                <p>아름다운 간이역 감상, 7080 옛날 골목길 및 옛날 교복 입고 추억 사진 촬영</p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="time">12:00 ~ 13:30</span>
+              <div class="timeline-content">
+                <strong>정통 경주 향토 떡갈비 정식 오찬</strong>
+                <p>풍미 가득한 경주 전통 떡갈비와 계절 찬상</p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="time">13:30 ~ 15:00</span>
+              <div class="timeline-content">
+                <strong>오아르미술관 & 감성 아트 산책</strong>
+                <p>고즈넉한 자연과 현대 미술이 만나는 미술관 프라이빗 관람 & 차 한잔의 여유</p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="time">15:00 ~ 17:00</span>
+              <div class="timeline-content">
+                <strong>경주 황리단길 부부 감성 자유투어</strong>
+                <p>대릉원 돌담길 한옥 카페, 감성 소품샵, 길거리 주전부리 자유 탐방 (자유 활동비 지급)</p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="time">17:00 ~</span>
+              <div class="timeline-content">
+                <strong>해단식 및 귀가</strong>
+                <p>기념 선물(부부 액자 및 답례품) 증정 및 각 사업장 복귀</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- (2-3) 오시는 길 & 집결 안내 -->
+    <div class="tab-pane" id="intro-location">
+      <div class="location-grid">
+        <!-- 메인 숙소 위치 -->
+        <div class="location-card">
+          <div class="loc-header">
+            <span class="badge"><i class="fa-solid fa-hotel"></i> 메인 숙소 및 행사장</span>
+            <h4>경주 힐튼호텔</h4>
+          </div>
+          <!-- // 여기 수정: 숙소 주소 및 교통 안내 -->
+          <p class="address"><i class="fa-solid fa-map-pin"></i> 경상북도 경주시 보문로 484-7 (신평동)</p>
+          <ul class="traffic-list">
+            <li><strong>자가용:</strong> 경주IC 진출 후 보문단지 방면으로 약 15분 소요 (호텔 무료 발렛/주차 지원)</li>
+            <li><strong>KTX/SRT:</strong> 신경주역 도착 시 호텔 셔틀버스(행사 전용) 30분 간격 운행</li>
+          </ul>
+          <div class="map-actions">
+            <!-- 네이버/카카오 지도 연결 버튼 -->
+            <a href="https://map.naver.com/v5/search/%EA%B2%BD%EC%A3%BC%ED%9E%90%ED%8A%BC%ED%98%B8%ED%85%94" target="_blank" class="btn btn-map naver"><i class="fa-solid fa-location-arrow"></i> 네이버 지도 보기</a>
+            <a href="https://map.kakao.com/link/search/경주힐튼호텔" target="_blank" class="btn btn-map kakao"><i class="fa-solid fa-map"></i> 카카오 맵 보기</a>
+          </div>
+        </div>
+
+        <!-- 1일차 집결지 위치 -->
+        <div class="location-card">
+          <div class="loc-header">
+            <span class="badge"><i class="fa-solid fa-tree"></i> 1일차 첫 방문지</span>
+            <h4>군위 사유원 (思惟園)</h4>
+          </div>
+          <!-- // 여기 수정: 사유원 주소 안내 -->
+          <p class="address"><i class="fa-solid fa-map-pin"></i> 대구광역시 군위군 부계면 치산효령로 1150</p>
+          <ul class="traffic-list">
+            <li><strong>도레이 통근 리무진:</strong> 구미/안성 등 각 사업장 본관 정문 앞 지정 시간 동시 출발</li>
+            <li><strong>개별 이동 시:</strong> 사유원 제1주차장 집결 (도레이 행사 전담 안내 데스크 운영)</li>
+          </ul>
+          <div class="map-actions">
+            <a href="https://map.naver.com/v5/search/%EC%82%AC%EC%9C%A0%EC%9B%90" target="_blank" class="btn btn-map naver"><i class="fa-solid fa-location-arrow"></i> 네이버 지도 보기</a>
+            <a href="https://map.kakao.com/link/search/사유원" target="_blank" class="btn btn-map kakao"><i class="fa-solid fa-map"></i> 카카오 맵 보기</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================================================
+       4. [카테고리 3] 프로그램 (사유원, 화본역, 오아르미술관, 황리단길)
+       ============================================================================== -->
+  <section class="section-container bg-light" id="program">
+    <div class="section-header">
+      <span class="section-badge">HEALING PROGRAM</span>
+      <h2 class="section-title">주요 프로그램</h2>
+      <p class="section-desc">자연과 예술, 아련한 옛 추억과 트렌디한 골목길까지 다채로운 여정이 펼쳐집니다.</p>
+    </div>
+
+    <!-- 프로그램 서브 내비게이션 필터 버튼 -->
+    <div class="program-filter-bar">
+      <button class="prog-filter-btn active" data-filter="all">전체 보기</button>
+      <button class="prog-filter-btn" data-filter="sayu">01. 군위 사유원</button>
+      <button class="prog-filter-btn" data-filter="hwabon">02. 화본역 & 추억박물관</button>
+      <button class="prog-filter-btn" data-filter="oar">03. 오아르미술관</button>
+      <button class="prog-filter-btn" data-filter="hwangri">04. 황리단길 자유투어</button>
+    </div>
+
+    <div class="programs-wrapper">
+
+      <!-- 프로그램 1: 사유원 -->
+      <article class="program-card" id="prog-sayu" data-category="sayu">
+        <div class="card-media">
+          <img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=1200&q=80" alt="군위 사유원 수목원 풍경" class="prog-img">
+          <div class="media-tag"><i class="fa-solid fa-tree"></i> 10만 평 명품 사색 수목원</div>
+        </div>
+        <div class="card-body">
+          <div class="prog-number">PROGRAM 01</div>
+          <h3 class="prog-title">군위 사유원 (思惟園)</h3>
+          <p class="prog-tagline">"바쁜 생각을 내려놓고, 깊은 사색에 잠기는 시간"</p>
+          <p class="prog-desc">
+            군위 팔공산 자락 10만 평의 청정 자연 속에 조성된 수목원으로, 프리츠커상 수상 건축가 알바로 시자(Álvaro Siza), 
+            승효상 등 세계적인 거장들의 건축물과 300년이 넘는 배롱나무 숲이 빚어낸 경이로운 힐링 공간입니다.
+          </p>
+          <div class="prog-highlights">
+            <span class="highlight-pill"><i class="fa-solid fa-check"></i> 소요헌 & 현암 건축 투어</span>
+            <span class="highlight-pill"><i class="fa-solid fa-check"></i> 300년 백일홍 배롱나무 숲</span>
+            <span class="highlight-pill"><i class="fa-solid fa-check"></i> 부부 전담 전문 해설 도슨트</span>
+          </div>
+          <div class="card-footer-action">
+            <button class="btn btn-outline" onclick="openProgramVideo('사유원', 'https://www.youtube.com/embed/5-9bC-90eB8')"><i class="fa-solid fa-play"></i> 사유원 소개 영상 보기</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 프로그램 2: 화본역 & 옛날옛적에 엄마아빠 -->
+      <article class="program-card reverse" id="prog-hwabon" data-category="hwabon">
+        <div class="card-media">
+          <img src="https://images.unsplash.com/photo-1517824806704-9040b037703b?auto=format&fit=crop&w=1200&q=80" alt="아름다운 간이역 철길 풍경" class="prog-img">
+          <div class="media-tag"><i class="fa-solid fa-train"></i> 감성 레트로 여행</div>
+        </div>
+        <div class="card-body">
+          <div class="prog-number">PROGRAM 02</div>
+          <h3 class="prog-title">화본역 & 옛날옛적에 엄마아빠</h3>
+          <p class="prog-tagline">"그 시절 우리가 사랑했던 풋풋한 1970~80년대로의 시간 여행"</p>
+          <p class="prog-desc">
+            네티즌이 가장 아름다운 간이역으로 선정한 고즈넉한 '화본역'과, 폐교를 리모델링하여 옛 정취를 완벽히 재현한 
+            '엄마아빠 어렸을 적에' 박물관을 둘러봅니다. 옛날 교복과 교련복을 입고 책걸상에 앉아 웃음 가득한 부부 청춘 사진을 남겨보세요.
+          </p>
+          <div class="prog-highlights">
+            <span class="highlight-pill"><i class="fa-solid fa-check"></i> 고즈넉한 급수탑과 화본역 철길</span>
+            <span class="highlight-pill"><i class="fa-solid fa-check"></i> 7080 교복 입고 추억 사진 촬영</span>
+            <span class="highlight-pill"><i class="fa-solid fa-check"></i> 추억의 달고나 & 옛날 문방구 체험</span>
+          </div>
+          <div class="card-footer-action">
+            <button class="btn btn-outline" onclick="openProgramVideo('화본역 & 추억박물관', 'https://www.youtube.com/embed/5-9bC-90eB8')"><i class="fa-solid fa-play"></i> 화본역 감성 영상 보기</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 프로그램 3: 오아르미술관 -->
+      <article class="program-card" id="prog-oar" data-category="oar">
+        <div class="card-media">
+          <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1200&q=80" alt="모던 미술관 갤러리 풍경" class="prog-img">
+          <div class="media-tag"><i class="fa-solid fa-palette"></i> 자연과 예술의 공존</div>
+        </div>
+        <div class="card-body">
+          <div class="prog-number">PROGRAM 03</div>
+          <h3 class="prog-title">오아르미술관 (OAR Museum)</h3>
+          <p class="prog-tagline">"자연의 빛과 예술 작품이 어우러지는 품격 있는 감성 산책"</p>
+          <p class="prog-desc">
+            자연 경관을 미술관 안으로 끌어들인 독창적인 건축 구조와 수준 높은 현대 미술 기획 전시를 만날 수 있는 복합 문화 공간입니다. 
+            부부가 함께 미술관 정원을 거닐며 조용한 감상의 시간과 아트 카페의 향긋한 티타임을 즐깁니다.
+          </p>
+          <div class="prog-highlights">
+            <span class="highlight-pill"><i class="fa-solid fa-check"></i> 사계절 풍경을 담은 유리 파사드</span>
+            <span class="highlight-pill"><i class="fa-solid fa-check"></i> 국내외 현대 미술 작가 특별전</span>
+            <span class="highlight-pill"><i class="fa-solid fa-check"></i> 조각 정원 테라스 웰컴 티 서비스</span>
+          </div>
+          <div class="card-footer-action">
+            <button class="btn btn-outline" onclick="openProgramVideo('오아르미술관', 'https://www.youtube.com/embed/5-9bC-90eB8')"><i class="fa-solid fa-play"></i> 오아르미술관 둘러보기</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 프로그램 4: 황리단길 자유투어 -->
+      <article class="program-card reverse" id="prog-hwangri" data-category="hwangri">
+        <div class="card-media">
+          <img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=1200&q=80" alt="한옥 고즈넉한 처마와 골목길" class="prog-img">
+          <div class="media-tag"><i class="fa-solid fa-mug-hot"></i> 부부만의 낭만 데이트</div>
+        </div>
+        <div class="card-body">
+          <div class="prog-number">PROGRAM 04</div>
+          <h3 class="prog-title">경주 황리단길 자유투어</h3>
+          <p class="prog-tagline">"천년고도의 돌담길과 낭만적인 한옥 카페에서의 둘만의 시간"</p>
+          <p class="prog-desc">
+            고즈넉한 한옥 기와지붕이 펼쳐진 황리단길에서 두 분만의 여유로운 자유 산책을 선물합니다. 
+            대릉원 돌담길 걷기, 아늑한 한옥 카페에서의 커피 한 잔, 유명 십원빵과 감성 기념품 숍을 자유롭게 거닐어보세요. (자유활동 지원비 지급)
+          </p>
+          <div class="prog-highlights">
+            <span class="highlight-pill"><i class="fa-solid fa-check"></i> 고즈넉한 대릉원 돌담길 포토존</span>
+            <span class="highlight-pill"><i class="fa-solid fa-check"></i> 인기 한옥 카페 & 베이커리 명소</span>
+            <span class="highlight-pill"><i class="fa-solid fa-check"></i> 부부 자유 쇼핑 및 데이트 지원금</span>
+          </div>
+          <div class="card-footer-action">
+            <button class="btn btn-outline" onclick="openProgramVideo('황리단길', 'https://www.youtube.com/embed/5-9bC-90eB8')"><i class="fa-solid fa-play"></i> 황리단길 감성 영상 보기</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ==============================================================================
+       5. [카테고리 4] 숙소 : 경주 힐튼호텔
+       ============================================================================== -->
+  <section class="section-container" id="lodging">
+    <div class="section-header">
+      <span class="section-badge">LUXURY ACCOMMODATION</span>
+      <h2 class="section-title">숙소 : 경주 힐튼호텔</h2>
+      <p class="section-desc">아름다운 보문호수의 사계절을 품은 5성급 특급 호텔에서 최고의 대우와 휴식을 선사합니다.</p>
+    </div>
+
+    <!-- 호텔 대표 비주얼 배너 -->
+    <div class="hotel-hero-banner">
+      <div class="hotel-banner-img-wrap">
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=80" alt="경주 힐튼호텔 전경 및 객실" class="hotel-banner-img">
+        <div class="hotel-badge-overlay">
+          <span>★★★★★ 5 STAR HOTEL</span>
+          <h3>HILTON GYEONGJU</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- 호텔 세부 특징 3열 카드 -->
+    <div class="hotel-features-grid">
+      <div class="hotel-card">
+        <div class="hotel-card-img">
+          <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="아늑한 호텔 객실 침구">
+        </div>
+        <div class="hotel-card-info">
+          <h4><i class="fa-solid fa-bed"></i> 디럭스 부부 전용 객실</h4>
+          <p>포근한 프리미엄 구스다운 침구와 보문호수가 한눈에 펼쳐지는 발코니 뷰. 완벽한 방음과 프라이빗한 공간에서 깊은 수면을 누리실 수 있습니다.</p>
+          <ul class="feature-bullets">
+            <li>보문호수 전망 발코니 / 최고급 킹베드</li>
+            <li>천연 아로마 배스 어메니티 완비</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hotel-card">
+        <div class="hotel-card-img">
+          <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80" alt="호텔 프리미엄 조식 뷔페">
+        </div>
+        <div class="hotel-card-info">
+          <h4><i class="fa-solid fa-utensils"></i> 레이크사이드 프리미엄 조식</h4>
+          <p>호텔 메인 뷔페 '레이크사이드'에서 신선한 즉석 오믈렛, 갓 구운 베이커리, 정갈한 한식 찬상까지 부부의 취향을 모두 만족시키는 조식이 제공됩니다.</p>
+          <ul class="feature-bullets">
+            <li>운영시간: 오전 07:00 ~ 10:00</li>
+            <li>셰프 즉석 라이브 스테이션 운영</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hotel-card">
+        <div class="hotel-card-img">
+          <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80" alt="호텔 힐링 사우나 및 스파">
+        </div>
+        <div class="hotel-card-info">
+          <h4><i class="fa-solid fa-spa"></i> 천연 온천 사우나 & 부대시설</h4>
+          <p>지친 피로를 부드럽게 녹여줄 천연 온천수 사우나와 실내 온수풀 무료 이용 혜택. 호텔 바로 앞 보문호반 산책길에서 아침 산책을 즐겨보세요.</p>
+          <ul class="feature-bullets">
+            <li>참가자 전원 사우나 100% 무료 입장</li>
+            <li>보문호수 산책로 직결 프라이빗 게이트</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 객실 이용 안내 바 -->
+    <div class="hotel-policy-bar">
+      <div class="policy-item">
+        <i class="fa-regular fa-clock"></i>
+        <div>
+          <strong>체크인 / 체크아웃</strong>
+          <span>체크인 15:00 | 체크아웃 11:00</span>
+        </div>
+      </div>
+      <div class="policy-item">
+        <i class="fa-solid fa-wifi"></i>
+        <div>
+          <strong>와이파이 및 편의</strong>
+          <span>전 객실 초고속 무료 Wi-Fi 및 캡슐 커피머신</span>
+        </div>
+      </div>
+      <div class="policy-item">
+        <i class="fa-solid fa-square-parking"></i>
+        <div>
+          <strong>주차 및 발렛</strong>
+          <span>도레이 워크숍 참가자 전용 무료 주차 등록</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================================================
+       6. [카테고리 5] 기타 사항 & 담당자 연락처 & FAQ
+       ============================================================================== -->
+  <section class="section-container bg-light" id="notice">
+    <div class="section-header">
+      <span class="section-badge">NOTICE & CONTACT</span>
+      <h2 class="section-title">기타 사항 및 문의</h2>
+      <p class="section-desc">궁금하신 점이나 지원이 필요하신 사항은 언제든 운영본부로 편하게 연락해 주세요.</p>
+    </div>
+
+    <div class="notice-grid">
+      <!-- 운영본부 담당자 연락처 카드 -->
+      <div class="contact-box">
+        <div class="contact-card-header">
+          <div class="icon-circle"><i class="fa-solid fa-headset"></i></div>
+          <div>
+            <h3>도레이첨단소재 행사운영본부</h3>
+            <p>인재개발팀 워크숍 전담 데스크</p>
+          </div>
+        </div>
+
+        <div class="contact-list">
+          <div class="contact-item">
+            <span class="item-title"><i class="fa-solid fa-user-tie"></i> 행사 총괄 담당자</span>
+            <!-- // 여기 수정: 담당자 성함 및 부서 -->
+            <strong class="item-val">김도레이 차장 (인재개발팀)</strong>
+            <div class="action-btn-group">
+              <!-- // 여기 수정: 실제 전화번호 입력 -->
+              <a href="tel:010-1234-5678" class="btn btn-sm btn-call"><i class="fa-solid fa-phone"></i> 전화 걸기</a>
+              <a href="sms:010-1234-5678" class="btn btn-sm btn-sms"><i class="fa-solid fa-comment-sms"></i> 문자 문의</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <span class="item-title"><i class="fa-solid fa-user-shield"></i> 현장 운영 & 비상 인솔자</span>
+            <!-- // 여기 수정: 현장 인솔자 연락처 -->
+            <strong class="item-val">이행복 대리 (현장 케어팀)</strong>
+            <div class="action-btn-group">
+              <a href="tel:010-9876-5432" class="btn btn-sm btn-call"><i class="fa-solid fa-phone"></i> 비상 직통전화</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <span class="item-title"><i class="fa-solid fa-envelope"></i> 공식 문의 이메일</span>
+            <!-- // 여기 수정: 문의 이메일 주소 -->
+            <strong class="item-val">workshop@torayam.com</strong>
+          </div>
+        </div>
+
+        <!-- 긴급 안내 콜아웃 -->
+        <div class="emergency-box">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <div>
+            <strong>안전 및 비상 케어</strong>
+            <p>행사 기간 동안 전문 간호 인력 및 비상 구급 차량이 상시 대기하고 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 자주 묻는 질문 (FAQ) 아코디언 & 참가 준비물 -->
+      <div class="faq-box">
+        <!-- 참가자 준비물 체크리스트 -->
+        <div class="prep-checklist-card">
+          <h4><i class="fa-solid fa-clipboard-check"></i> 참가자 필수 준비물 안내</h4>
+          <div class="prep-items">
+            <div class="prep-badge"><i class="fa-solid fa-shoe-prints"></i> 편안한 운동화 (사유원 트래킹용)</div>
+            <div class="prep-badge"><i class="fa-solid fa-vest"></i> 가벼운 겉옷 (일교차 대비)</div>
+            <div class="prep-badge"><i class="fa-solid fa-id-card"></i> 신분증 (호텔 체크인용)</div>
+            <div class="prep-badge"><i class="fa-solid fa-pills"></i> 개인 상비약</div>
+          </div>
+        </div>
+
+        <!-- FAQ 아코디언 -->
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>Q. 복장은 어떻게 준비해야 하나요?</span>
+              <i class="fa-solid fa-plus arrow-icon"></i>
+            </button>
+            <div class="accordion-body">
+              <p>수목원 산책과 황리단길 투어가 포함되어 있으므로 편안하고 걷기 좋은 운동화와 캐주얼한 복장을 적극 권장합니다. 저녁 만찬 행사 시에도 정장 대신 편안하고 깔끔한 세미 캐주얼로 참석하시면 됩니다.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>Q. 개인 자가용으로 개별 이동해도 괜찮나요?</span>
+              <i class="fa-solid fa-plus arrow-icon"></i>
+            </button>
+            <div class="accordion-body">
+              <p>네, 가능합니다! 개별 이동을 희망하시는 경우 1일차 집결지인 '군위 사유원 제1주차장'으로 오전 11:30까지 도착해 주시면 되며, 호텔 및 모든 방문지 주차비가 무료 지원됩니다. 신청 시 사전 접수 부탁드립니다.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>Q. 호텔 객실 변경이나 침대 타입 지정이 가능한가요?</span>
+              <i class="fa-solid fa-plus arrow-icon"></i>
+            </button>
+            <div class="accordion-body">
+              <p>참가하시는 모든 반장님 부부께 '보문호수 뷰 디럭스 더블룸(킹베드)'이 우선 배정됩니다. 만약 트윈베드(싱글 2개)를 원하시는 경우 사전 설문이나 운영본부(김도레이 차장)로 연락 주시면 변경해 드립니다.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>Q. 사유원이나 황리단길 투어 시 자유 시간은 충분한가요?</span>
+              <i class="fa-solid fa-plus arrow-icon"></i>
+            </button>
+            <div class="accordion-body">
+              <p>네! 빡빡한 단체 관광 일정이 아닌, 부부 두 분만의 온전한 대화와 쉼을 위해 각 프로그램마다 넉넉한 자유 산책 시간과 부부 데이트 티타임 지원금을 제공해 드립니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================================================
+       7. 푸터 (Footer)
+       ============================================================================== -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">TORAY 도레이첨단소재</div>
+        <p>2026년 도레이첨단소재 현장 반장 부부 특별 워크숍 [부드럽 과정]</p>
+      </div>
+      <div class="footer-copyright">
+        <!-- // 여기 수정: 저작권 및 회사 정보 -->
+        <p>© 2026 TORAY Advanced Materials Korea Inc. All Rights Reserved.</p>
+        <p class="sub-copy">본 웹사이트는 2026년 부드럽 과정 참가 임직원 및 배우자를 위해 특별 제작되었습니다.</p>
+      </div>
+      <a href="#home" class="scroll-to-top" title="맨 위로 이동"><i class="fa-solid fa-arrow-up"></i></a>
+    </div>
+  </footer>
+
+  <!-- ==============================================================================
+       8. 모바일 하단 퀵 내비게이션 바 (모바일 전용 간편 이동 메뉴)
+       ============================================================================== -->
+  <nav class="mobile-bottom-nav">
+    <a href="#home" class="bottom-nav-item active"><i class="fa-solid fa-house"></i><span>홈</span></a>
+    <a href="#intro" class="bottom-nav-item"><i class="fa-solid fa-leaf"></i><span>소개</span></a>
+    <a href="#program" class="bottom-nav-item"><i class="fa-solid fa-compass"></i><span>프로그램</span></a>
+    <a href="#lodging" class="bottom-nav-item"><i class="fa-solid fa-hotel"></i><span>숙소</span></a>
+    <a href="#notice" class="bottom-nav-item"><i class="fa-solid fa-phone"></i><span>문의</span></a>
+  </nav>
+
+  <!-- ==============================================================================
+       9. 동영상 재생 모달 (팝업창)
+       ============================================================================== -->
+  <div class="video-modal" id="videoModal">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-container">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="닫기"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-header">
+        <h4 id="videoModalTitle">2026 부드럽 과정 힐링 인트로 영상</h4>
+      </div>
+      <div class="video-frame-wrap">
+        <!-- 반응형 유튜브 영상 임베드 -->
+        <iframe id="videoIframe" src="https://www.youtube.com/embed/5-9bC-90eB8?autoplay=0" title="Healing Nature Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="modal-footer-caption">
+        <i class="fa-solid fa-heart"></i> 자연과 쉼, 부부의 따뜻한 사랑이 함께하는 여정입니다.
+      </div>
+    </div>
+  </div>
+
+  <!-- 메인 스크립트 연결 -->
+  <script src="script.js"></script>
+</body>
+</html>

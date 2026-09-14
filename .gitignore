@@ -1,0 +1,4 @@
+# 임시 파일 및 로그 제외
+*.log
+*.tmp
+response_test.html
